@@ -1,0 +1,19 @@
+#install.packages("dplyr")
+
+library(dplyr)
+library(agricolae)
+#Utilizamos una dataset cargada en la libreria UsingR
+TabaData <- UsingR:: nym.2002
+View(TabaData)
+# Creamos un vector utilizando valores del dataset
+Edades <- select(TabaData,age) %>% unlist
+Frecuencia<- graph.freq(Edades,col='gray')
+summary(Frecuencia)
+
+
+plot(Frecuencia,col='blue',frequency = 1)
+#Creamos el poligono de frecuencia
+polygon.freq(Frecuencia,col='red',frequency = 1,lwd =4)
+
+
+#help("colors")
